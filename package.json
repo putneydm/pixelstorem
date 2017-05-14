@@ -1,0 +1,23 @@
+{
+  "name": "postcss-pixelstorem",
+  "version": "1.0.0",
+  "description": "Converts pixel measurements into rems or ems. Works with the same pixels to rem or pixels to em syntax as Bourbon, so no rewrite of CSS source code is required.",
+  "main": "index.js",
+  "scripts": {
+    "test": "pixelstorem"
+  },
+  "keywords": [
+    "pixels",
+    "to",
+    "rem",
+    "pixels",
+    "to",
+    "em",
+    "bourbon",
+    "postcss",
+    "pixel",
+    "converter"
+  ],
+  "author": "David M. Putney",
+  "license": "ISC"
+}
