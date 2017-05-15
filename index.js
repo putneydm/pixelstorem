@@ -1,17 +1,29 @@
 var postcss = require('postcss');
-var base = 16;
+
 
 module.exports = postcss.plugin('myplugin', function myplugin(options) {
     return function (css) {
         options = options || {};
+
+        var base = options.base ? options.base : 16;
         css.walkRules(function (rule) {
             rule.walkDecls(function (decl, i) {
-                var matches = decl.value.match(/rem\(\d+\)/ig, "");
-                if (matches) {
+
+                var excluded = options.exclude.some(function(el, i){
+                    return decl.prop === el;
+                });
+
+                var matches = decl.value.match(/\b(em\(\d+\)|rem\(\d+\))/ig, "");
+                if (matches && !excluded) {
                   var revised = matches.map(function(el, i) {
                     var regExp = new RegExp(/\d+/, 'g');
-                    // var numberMatch = regExp.exec(el);
-                    return regExp.exec(el) / base + 'rem';
+                    var type = new RegExp(/(^em|rem)/, 'ig');
+
+                    var measureType = options.unit
+                    ? options.unit
+                    : type.exec(el)[0].toString();
+
+                    return regExp.exec(el) / base + measureType;
                   });
 
                   decl.value = revised.length > 1
