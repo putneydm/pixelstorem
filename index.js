@@ -9,11 +9,14 @@ module.exports = postcss.plugin('myplugin', function myplugin(options) {
         css.walkRules(function (rule) {
             rule.walkDecls(function (decl, i) {
 
-                var excluded = options.exclude.some(function(el, i){
+                var declValue = decl.value;
+                var exclude = options.exclude || [];
+
+                var excluded = exclude.some(function(el, i){
                     return decl.prop === el;
                 });
+                var matches = declValue.match(/\b(em\(\d+\)|rem\(\d+\))/ig, "");
 
-                var matches = decl.value.match(/\b(em\(\d+\)|rem\(\d+\))/ig, "");
                 if (matches && !excluded) {
                   var revised = matches.map(function(el, i) {
                     var regExp = new RegExp(/\d+/, 'g');
