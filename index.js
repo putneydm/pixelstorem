@@ -26,12 +26,12 @@ module.exports = postcss.plugin('myplugin', function myplugin(options) {
                     ? options.unit
                     : type.exec(el)[0].toString();
 
-                    return regExp.exec(el) / base + measureType;
+                    var newValue = regExp.exec(el) / base + measureType;
+                    declValue = (declValue.replace(el, newValue));
                   });
 
-                  decl.value = revised.length > 1
-                  ? revised.join(', ')
-                  : revised[0];
+                  decl.value = declValue;
+
                 }
             });
         });
