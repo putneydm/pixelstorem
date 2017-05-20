@@ -2,7 +2,7 @@
 
 `postcss-pixels-to-rem` is a PostCSS plugin that converts items sized in pixels in CSS code to either rems or ems.
 
-It will convert several types of CSS notation. It is designed to be versatile by doing basic `px to rem` conversion and also working with legacy code that written to use the deprecated [`Pixels to Rems`][3] and [`Pixels to Ems`][2] Sass functions from [Bourbon][1]. It converts the notations `rem(<size>)` to `rems` and `em(<size>)`  to `ems`. It also converts `<size>px` code to `rems` or `ems`.
+It will convert several types of CSS notation. It is designed to be versatile by doing basic `px to rem` conversion and also to work with legacy code that was written against the deprecated [`Pixels to Rems`][3] and [`Pixels to Ems`][2] Sass functions from [Bourbon][1]. It converts the notations `rem(<value>)` to `rems` and `em(<value>)` to `ems`. It also converts `<value>px` code to `rems` or `ems`.
 
 In `postcss-pixels-to-rem` default mode, an input of:
 
@@ -11,23 +11,22 @@ In `postcss-pixels-to-rem` default mode, an input of:
     }
     h2 {
         font-size: em(24):
-   }
-   p {
+    }
+    p {
         font-size: 16px;
-   }
+    }
 
 will result in an output of:   
 
-   h1 {
+    h1 {
         font-size: 2rem;
-   }
-   h2 {
+    }
+    h2 {
         font-size: 1.5em:
-   }
-   p {
+    }
+    p {
         font-size: 1em;
-   }
-
+    }
 
 
 ## Installation
