@@ -4,7 +4,7 @@
 
 `postcss-pixels-to-rem` is a PostCSS plugin that converts items sized in pixels in CSS code to either rems or ems.
 
-It will convert several types of CSS notation. It is designed to be versatile doing basic `px to rem` conversion and to work with legacy code that used the deprecated [`Pixels to Rems`][3] and [`Pixels to Ems`][2] Sass functions from [Bourbon][1]. It converts the notations `rem(<size>)` to rems and `em(<size>)`  to ems. It also converts `<size>px` code to rems or ems.
+It will convert several types of CSS notation. It is designed to be versatile by doing basic `px to rem` conversion and also working with legacy code that written to use the deprecated [`Pixels to Rems`][3] and [`Pixels to Ems`][2] Sass functions from [Bourbon][1]. It converts the notations `rem(<size>)` to `rems` and `em(<size>)`  to `ems`. It also converts `<size>px` code to `rems` or `ems`.
 
 Given a value it will output:
 
@@ -36,7 +36,7 @@ In gulpfile.js
 
 ## Inputs and outputs
 
-In default mode postcss-pixels-to-rem outputs:
+In default mode `postcss-pixels-to-rem` outputs:
 
 `font-size: rem(<value>);` => `font-size: <value>rem;`
 
@@ -68,8 +68,8 @@ Default base for conversion is `1rem = 16px`. Default output unit for `px` value
     });
 
 Optional values:
-* `base: <value>` - Resets the base font value.
-* `unit: "rem" or "em"` - Makes output values on all items whatever unit value is chosen, including those using `rem(<value>)` or `em(<value>)` notation.
+* `base: <value>` - Accepts a unitless value. Resets the base font size for conversion to rems or ems.
+* `unit: "rem" or "em"` - Accepts a string. Makes output values on all items the chosen unit value. This overrides values set by using `rem(<value>)` or `em(<value>)` notation.
 * `exclude: ["declaration"]` - any declaration type to exclude from conversion, eg, `border`
 
 
