@@ -1,6 +1,6 @@
 var postcss = require('postcss');
 
-module.exports = postcss.plugin('postcss-pixelstorem', function pixelstorem(options) {
+module.exports = postcss.plugin('postcss-pixels-to-rem', function pixelstorem(options) {
     return function (css) {
         options = options || {};
         var base = options.base ? options.base : 16;
