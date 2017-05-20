@@ -16,8 +16,16 @@
     "bourbon",
     "postcss",
     "pixel",
-    "converter"
+    "converter",
+    "pixels to rem",
+    "piexls to em",
+    "pixels to rem converter",
+    "css postprocessor"
   ],
   "author": "David M. Putney",
   "license": "ISC"
+},
+"repository": {
+  "type": "git",
+  "url": "git://github.com/putneydm/pixelstorem.git"
 }
