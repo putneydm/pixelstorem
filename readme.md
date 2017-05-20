@@ -1,18 +1,33 @@
 # postcss-pixels-to-rem
 
-## What it does
-
 `postcss-pixels-to-rem` is a PostCSS plugin that converts items sized in pixels in CSS code to either rems or ems.
 
 It will convert several types of CSS notation. It is designed to be versatile by doing basic `px to rem` conversion and also working with legacy code that written to use the deprecated [`Pixels to Rems`][3] and [`Pixels to Ems`][2] Sass functions from [Bourbon][1]. It converts the notations `rem(<size>)` to `rems` and `em(<size>)`  to `ems`. It also converts `<size>px` code to `rems` or `ems`.
 
-Given a value it will output:
+In `postcss-pixels-to-rem` default mode, an input of:
 
-`font-size: rem(16);` => `font-size: 1rem;`
+    h1 {
+        font-size: rem(32);
+    }
+    h2 {
+        font-size: em(24):
+   }
+   p {
+        font-size: 16px;
+   }
 
-`font-size: em(16);` => `font-size: 1em;`
+will result in an output of:   
 
-`font-size: 16px;` => `font-size: 1rem;`
+   h1 {
+        font-size: 2rem;
+   }
+   h2 {
+        font-size: 1.5em:
+   }
+   p {
+        font-size: 1em;
+   }
+
 
 
 ## Installation
@@ -33,16 +48,6 @@ In gulpfile.js
     .pipe(postcss(plugins))
     .pipe(gulp.dest(public/css));
     });
-
-## Inputs and outputs
-
-In default mode `postcss-pixels-to-rem` outputs:
-
-`font-size: rem(<value>);` => `font-size: <value>rem;`
-
-`font-size: em(<value>);` => `font-size: <value>em;`
-
-`font-size: <value>px;` => `font-size: <value>rem;`
 
 
 ## Defaults
@@ -69,8 +74,8 @@ Default base for conversion is `1rem = 16px`. Default output unit for `px` value
 
 Optional values:
 * `base: <value>` - Accepts a unitless value. Resets the base font size for conversion to rems or ems.
-* `unit: "rem" or "em"` - Accepts a string. Makes output values on all items the chosen unit value. This overrides values set by using `rem(<value>)` or `em(<value>)` notation.
-* `exclude: ["declaration"]` - any declaration type to exclude from conversion, eg, `border`
+* `unit: "rem" or "em"` - Accepts unit value of either `"rem"` or `"em"` as a string. All items will be output in the unit value set here, including values set by `rem(<value>)` or `em(<value>)` notation.
+* `exclude: ["declaration"]` - any declaration type to exclude from conversion, eg, `border`, `border-radius`, etc. These declarations will be excluded globally.
 
 
 [1]: http://bourbon.io/
