@@ -16,10 +16,7 @@ module.exports = postcss.plugin('postcss-pixels-to-rem', function pixelstorem(op
             var regExVal = new RegExp(/\d+/, 'g'),
                 regExType = new RegExp(/(^em|rem|px)/, 'ig'),
                 unit = regExType.exec(el)[0].toString();
-            var measureType = options.unit
-            ? options.unit
-            : unit !== 'px' ? unit
-            : 'rem';
+            var measureType = options.unit ? options.unit : unit !== 'px' ? unit: 'rem';
 
             return convertedVal = regExVal.exec(el) / base + measureType;
           });
@@ -30,9 +27,10 @@ module.exports = postcss.plugin('postcss-pixels-to-rem', function pixelstorem(op
             var ruleParent = rule.parent;
 
             if (ruleParent.type === "atrule" && ruleParent.name === "media" && mediaQueries) {
-              var matches = findMatches(ruleParent.params);
-              var convertedVal = convertValues(matches);
-              var revisedParam = rule.parent.params;
+              var matches = findMatches(ruleParent.params),
+                  convertedVal = convertValues(matches),
+                  revisedParam = rule.parent.params;
+
               convertedVal.map(function(el, i) {
                 revisedParam = revisedParam.replace(matches[i], el);
               });
