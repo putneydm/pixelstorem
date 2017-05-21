@@ -29,15 +29,16 @@ will result in an output of:
     }
 
 
-## Installation
+## Installation and use
 
 ``$ npm install --save-dev postcss-pixels-to-rem``
 
 In gulpfile.js
 
-`var	postcss = require('gulp-postcss')`
+    var	postcss = require('gulp-postcss')
+    var pixelstorem = require('postcss-pixels-to-rem');
 
-`var pixelstorem = require('postcss-pixels-to-rem');`
+Gulp task:
 
     gulp.task('css', function() {
         var plugins = [
@@ -51,8 +52,9 @@ In gulpfile.js
 
 ## Defaults
 
-Default base for conversion is `1rem = 16px`. Default output unit for `px` values is `rem`.
-
+* Default base for conversion is `1rem = 16px`.
+* Default output unit for `px` values is `rem`.
+* Default is to convert values in media queries.
 
 ## Options
 
@@ -75,6 +77,7 @@ Optional values:
 * `base: <value>` - Accepts a unitless value. Resets the base font size for conversion to rems or ems.
 * `unit: "rem" or "em"` - Accepts unit value of either `"rem"` or `"em"` as a string. All items will be output in the unit value set here, including values set by `rem(<value>)` or `em(<value>)` notation.
 * `exclude: ["declaration"]` - any declaration type to exclude from conversion, eg, `border`, `border-radius`, etc. These declarations will be excluded globally.
+* `mediaQueries: boolean` Setting this to `false` prevents conversion of values in media queries. Default value is `true`.
 
 
 [1]: http://bourbon.io/
