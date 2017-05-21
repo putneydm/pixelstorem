@@ -23,9 +23,9 @@
     "css postprocessor"
   ],
   "author": "David M. Putney",
-  "license": "ISC"
-},
-"repository": {
-  "type": "git",
-  "url": "git://github.com/putneydm/pixelstorem.git"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/putneydm/pixelstorem.git"
+  }
 }
