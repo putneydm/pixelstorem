@@ -44,7 +44,7 @@ Gulp task:
         var plugins = [
             pixelstorem()
         ];      
-    gulp.src('source/sass/\*.scss')
+    gulp.src('source/sass/styles.scss')
     .pipe(postcss(plugins))
     .pipe(gulp.dest(public/css));
     });
@@ -53,12 +53,14 @@ Gulp task:
 ## Defaults
 
 * Default base for conversion is `1rem = 16px`.
-* Default output unit for `px` values is `rem`.
+* Default output for `rem(<value>)`is `rem`.
+* DEfault output for `em(<value>)` is `em`.
+* Default output unit for `<value>px` is `rem`.
 * Default is to convert values in media queries.
 
 ## Options
 
-`postcss-pixels-to-rem` accepts three optional settings that override default settings.
+`postcss-pixels-to-rem` accepts optional settings that override default settings.
 
     gulp.task('css', function() {
         var plugins = [
