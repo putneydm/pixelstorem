@@ -31,11 +31,13 @@ will result in an output of:
 
 ## Installation and use
 
+postcss-pixels-to-rem requires [PostCSS][4] to be installed. To install postcss-pixels-to-rem:
+
 ``$ npm install --save-dev postcss-pixels-to-rem``
 
 In gulpfile.js
 
-    var	postcss = require('gulp-postcss')
+    var postcss = require('gulp-postcss')
     var pixelstorem = require('postcss-pixels-to-rem');
 
 Gulp task:
@@ -85,3 +87,4 @@ Optional values:
 [1]: http://bourbon.io/
 [2]: http://bourbon.io/docs/#px-to-em
 [3]: http://bourbon.io/docs/#px-to-rem
+[4]: http://postcss.org/
