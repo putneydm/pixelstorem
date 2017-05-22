@@ -1,5 +1,5 @@
 <a name="0.8.0"></a>
-# [0.8.0](https://github.com/michael-ciniawsky/postcss-load-config/compare/v1.1.0...v1.2.0) (2017-02-13)
+# [0.8.0](https://github.com/michael-ciniawsky/postcss-load-config/compare/v1.1.0...v1.2.0) (2017-05-22)
 
 
 <!-- ### Features
