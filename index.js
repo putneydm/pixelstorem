@@ -8,12 +8,12 @@ module.exports = postcss.plugin('postcss-pixels-to-rem', function pixelstorem(op
           exclude = options.exclude || [];
 
       function findMatches (el) {
-        return el.match(/(em\(\d+\)|rem\(\d+\)|\d+px)/ig, "");
+        return el.match(/(em\([\d.]+\)|rem\([\d.]+\)|[\d.]+px)/ig, "");
       };
 
       function convertValues(matches) {
         var revised = matches.map(function(el, i) {
-          var regExVal = new RegExp(/\d+/, 'g'),
+          var regExVal = new RegExp(/[\d.]+/, 'g'),
               regExType = new RegExp(/(^em|rem|px)/, 'ig'),
               unit = regExType.exec(el)[0].toString();
           var measureType = options.unit ? options.unit : unit !== 'px' ? unit: 'rem';
